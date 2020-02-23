@@ -1,0 +1,124 @@
+.calculator-main {
+  border: 2px solid deepskyblue;
+  padding: 10px;
+  width: 282px;
+  height: auto;
+  background-color: #e9ecee; }
+
+.calculator-display {
+  border: 2px solid darkgrey;
+  padding: 5px;
+  display: flex; }
+  .calculator-display__input {
+    height: auto;
+    width: 100%;
+    font-size: 20pt;
+    text-align: right; }
+    .calculator-display__input:focus {
+      outline: none; }
+  .calculator-display__button-cancel {
+    height: 60px;
+    width: 60px;
+    margin-left: 5px;
+    background-image: url("../images/cancel.JPG");
+    background-position: center; }
+    .calculator-display__button-cancel:focus {
+      outline: none; }
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap; }
+
+.buttons__button_0, .buttons__button_1, .buttons__button_2, .buttons__button_3, .buttons__button_4, .buttons__button_5, .buttons__button_6, .buttons__button_7, .buttons__button_8, .buttons__button_9, .buttons__button_plus, .buttons__button_minus, .buttons__button_multiply, .buttons__button_division, .buttons__button_equal {
+  height: 60px;
+  width: 60px;
+  margin: 5px;
+  background-position: center; }
+  .buttons__button_0:focus, .buttons__button_1:focus, .buttons__button_2:focus, .buttons__button_3:focus, .buttons__button_4:focus, .buttons__button_5:focus, .buttons__button_6:focus, .buttons__button_7:focus, .buttons__button_8:focus, .buttons__button_9:focus, .buttons__button_plus:focus, .buttons__button_minus:focus, .buttons__button_multiply:focus, .buttons__button_division:focus, .buttons__button_equal:focus {
+    outline-color: deepskyblue; }
+
+.buttons__button_0 {
+  width: 130px;
+  background-image: url("../images/0.JPG"); }
+
+.buttons__button_1 {
+  background-image: url("../images/1.JPG"); }
+
+.buttons__button_2 {
+  background-image: url("../images/2.JPG"); }
+
+.buttons__button_3 {
+  background-image: url("../images/3.JPG"); }
+
+.buttons__button_4 {
+  background-image: url("../images/4.JPG"); }
+
+.buttons__button_5 {
+  background-image: url("../images/5.JPG"); }
+
+.buttons__button_6 {
+  background-image: url("../images/6.JPG"); }
+
+.buttons__button_7 {
+  background-image: url("../images/7.JPG"); }
+
+.buttons__button_8 {
+  background-image: url("../images/8.JPG"); }
+
+.buttons__button_9 {
+  background-image: url("../images/9.JPG"); }
+
+.buttons__button_plus {
+  background-image: url("../images/plus.JPG"); }
+
+.buttons__button_minus {
+  background-image: url("../images/minus.JPG"); }
+
+.buttons__button_multiply {
+  background-image: url("../images/multiply.JPG"); }
+
+.buttons__button_division {
+  background-image: url("../images/division.JPG"); }
+
+.buttons__button_equal {
+  background-image: url("../images/equal.JPG"); }
+
+#flashMessages {
+  font-weight: bold; }
+
+.form-auth {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px; }
+
+.mapPage {
+  background: gray; }
+
+.imgBaloon {
+  width: 100%;
+  height: 100px;
+  float: left;
+  border: 2px solid #a3a3a3; }
+
+.textPlace {
+  clear: both;
+  display: block;
+  width: 200px;
+  max-width: 200px;
+  padding-bottom: 5px; }
+
+.workTime {
+  border: 2px solid #b6b6b6;
+  margin-top: 5px;
+  padding: 5px;
+  width: 100%;
+  display: block;
+  box-shadow: 8px 0px 13px 0px #b6b6b6;
+  background: radial-gradient(white, #d6d0d1); }
+
+.mapMain {
+  margin: 60px 400px;
+  width: 1200px;
+  height: 800px;
+  display: block;
+  border: 2px solid #95291b; }
