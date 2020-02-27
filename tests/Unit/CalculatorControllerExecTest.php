@@ -14,10 +14,18 @@ class CalculatorControllerExecTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function testExec()
+    protected $request;
+
+    protected function setUp()
     {
-        $request = new Request();
-        $request->replace([
+        parent::setUp();
+        $this->request = new Request();
+    }
+
+    public function testPlus()
+    {
+        $this->request = new Request();
+        $this->request->replace([
             'a' => 5,
             'b' => 2,
             'expression' => '+'
@@ -25,9 +33,30 @@ class CalculatorControllerExecTest extends TestCase
         $expected = 7;
 
         $obj = new CalculatorController();
-        $response = $obj->exec($request);
+        $response = $obj->exec($this->request);
+
+        $result = $response->getData()->result;
+        $this->assertEquals($expected, $result);
+
+        return $result;
+    }
+
+    /**
+     * @depends testPlus
+     */
+    public function testMinus($result) {
+        $this->request->replace([
+            'a' => $result,
+            'b' => 2,
+            'expression' => '-'
+        ]);
+        $expected = 5;
+
+        $obj = new CalculatorController();
+        $response = $obj->exec( $this->request);
 
         $result = $response->getData()->result;
         $this->assertEquals($expected, $result);
     }
+
 }

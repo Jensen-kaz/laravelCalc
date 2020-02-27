@@ -21,33 +21,41 @@ class CalculatorController extends Controller
 
     public function exec(Request $request) {
 
-        $params = $request->all();
+        try {
+            $params = $request->all();
 
-        $a = (int)$params['a'];
-        $b = (int)$params['b'];
-        $expression = $params['expression'];
-        $data = [];
-
-        $arr = [
-            '+' => $plusExpr = new PlusExpression(),
-            '-' => $minusExpr = new MinusExpression(),
-            '*' => $multipleExpr = new MultipleExpression(),
-            '/' => $divisionExpr = new DivisionExpression(),
-        ];
-
-        foreach ($arr as $key => $value) {
-
-            if ($key == $expression) {
-                MathExpressions::setExpression($value);
-                $data['result'] =  MathExpressions::getResult($a, $b);
+            if (empty($params)) {
+                throw new Exception('Params is null');
             }
+
+            $a = (int)$params['a'];
+            $b = (int)$params['b'];
+            $expression = $params['expression'];
+            $data = [];
+
+            $arr = [
+                '+' => $plusExpr = new PlusExpression(),
+                '-' => $minusExpr = new MinusExpression(),
+                '*' => $multipleExpr = new MultipleExpression(),
+                '/' => $divisionExpr = new DivisionExpression(),
+            ];
+
+            foreach ($arr as $key => $value) {
+
+                if ($key == $expression) {
+                    MathExpressions::setExpression($value);
+                    $data['result'] = MathExpressions::getResult($a, $b);
+                }
+            }
+
+            $log = new ActionLog();
+
+            $log->setLog($params, $data['result']);
+            return response()->json($data);
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-
-        $log = new ActionLog();
-
-        $log->setLog($params, $data['result']);
-
-        return response()->json($data);
 
     }
 }
